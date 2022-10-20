@@ -21,14 +21,14 @@
         <dependency>
             <groupId>com.amazon.emr</groupId>
             <artifactId>emr-dynamodb-hadoop</artifactId>
-            <version>${project.parent.version}</version>
+            <version>4.16.0</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.amazon.emr</groupId>
             <artifactId>emr-dynamodb-hadoop</artifactId>
-            <version>${project.parent.version}</version>
+            <version>4.2.0</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>

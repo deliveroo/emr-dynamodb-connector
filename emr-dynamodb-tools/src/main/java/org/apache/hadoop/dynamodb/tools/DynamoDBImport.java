@@ -73,6 +73,18 @@ public class DynamoDBImport extends Configured implements Tool {
       }
     }
     setTableProperties(jobConf, tableName, writeRatio);
+    int writeThroughput = 0;
+    if (args.length >= 4) {
+      String val = args[3];
+      try {
+        writeThroughput = Integer.parseInt(val);
+        jobConf.set(DynamoDBConstants.WRITE_THROUGHPUT, Integer.toString(writeThroughput));
+        System.out.println("Overridden WRITE_THROUGHPUT to " + writeThroughput);
+      } catch (Exception e) {
+        printUsage("Could not parse write throughput (value: " + val + ")");
+        return -1;
+      }
+    }
 
     Date startTime = new Date();
     System.out.println("Job started: " + startTime);
